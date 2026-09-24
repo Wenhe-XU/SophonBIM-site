@@ -1,0 +1,6 @@
+*.exe
+*.exe.blockmap
+.env
+.env.*
+._*
+Thumbs.db

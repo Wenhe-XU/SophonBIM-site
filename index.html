@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d13">
+  <meta name="description" content="SophonBIM brings Jev-powered natural language actions to BIM coordination and turns reviewed user workflows into versioned learning data.">
+  <title>SophonBIM — Ask. Act. Learn.</title>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="site.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#intro">Skip to content</a>
+  <div class="page-glow" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#intro" aria-label="SophonBIM home">
+        <img src="assets/mark.svg" width="28" height="28" alt="">
+        <span>Sophon<span>BIM</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#intro">Intro</a>
+        <a href="#tutorial">Tutorial</a>
+        <a href="docs.html">Docs</a>
+        <a href="#download">Download</a>
+      </nav>
+      <a class="header-action" href="#download">Desktop release status <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro section" id="intro" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="signal" aria-hidden="true"></span> JEV-POWERED AI FOR BIM</p>
+          <h1 id="intro-title">Ask. Act.<br><span>Learn.</span></h1>
+          <p class="intro-description"><span class="intro-lead">From prompt to BIM action.</span><span class="intro-follow">Jev works with live IFC context. Reviewed workflows shape the next model iteration.</span></p>
+          <div class="intro-actions">
+            <a class="button button-primary" href="#tutorial">Explore the workflow <span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#download">Check release status <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="product-stage">
+          <div class="stage-halo" aria-hidden="true"></div>
+          <div class="window-frame">
+            <div class="window-caption">
+              <div class="window-title"><span class="window-dot" aria-hidden="true"></span> SOPHONBIM / AI BIM WORKSPACE</div>
+              <div class="window-actions"><span class="window-context">DEFAULT DUPLEX IFC <span aria-hidden="true">●</span></span></div>
+            </div>
+            <img class="product-shot" src="assets/workspace-default-ifc.png" alt="SophonBIM workspace showing the bundled Duplex IFC model, selection tree, and Jev prompt" width="1600" height="1000" fetchpriority="high">
+          </div>
+          <div class="stage-tag tag-left"><span class="tag-led" aria-hidden="true"></span> NATURAL LANGUAGE → BIM ACTION</div>
+          <div class="stage-tag tag-right">BEHAVIOR → LEARNING DATA <span aria-hidden="true">↗</span></div>
+        </div>
+        <div class="intro-footnote"><span>JEV DECISION ENGINE</span><span>IFC + COORDINATION CONTEXT</span><span>HUMAN-REVIEWED LEARNING</span></div>
+        <div class="intro-pillars" aria-label="SophonBIM capabilities">
+          <div><span>01 / FAST AI BIM OPERATIONS</span><h2>From intent to action.</h2><p>Ask for IFC properties, select model elements, run clash tests, or update issues. Jev chooses a supported action against the project in front of you.</p></div>
+          <div><span>02 / ITERATIVE MODEL IMPROVEMENT</span><h2>From behavior to better data.</h2><p>Activity becomes task Episodes. Human labels and reviews capture successful paths in versioned datasets for future evaluation and model updates.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tutorial section" id="tutorial" aria-labelledby="tutorial-title">
+      <div class="container">
+        <div class="section-heading"><p class="section-label"><span>01</span> / TUTORIAL</p><h2 id="tutorial-title">One request.<br>One traceable action.<br><span>A smarter next iteration.</span></h2><p>Follow the complete path from a live IFC model to an AI-assisted action, then see how reviewed behavior becomes reusable learning data.</p></div>
+        <div class="demo-showcase orbit-demo-showcase" aria-labelledby="orbit-demo-title">
+          <div class="demo-showcase-copy">
+            <p class="step-kicker">01 / EXPLORE THE DEFAULT MODEL</p>
+            <h3 id="orbit-demo-title">Get your bearings in the live workspace.</h3>
+            <p>Start with the bundled Duplex IFC. Orbit the building in the 3D viewport and see the model tree and Jev prompt in the same workspace where your next request will run.</p>
+            <ol><li><span>01</span> Load the default Duplex IFC</li><li><span>02</span> Orbit the model to inspect its shape</li><li><span>03</span> Keep the project open for Jev</li></ol>
+            <small>This local model tour uses the 3D viewer; no AI key is needed.</small>
+          </div>
+          <div class="demo-showcase-media">
+            <div class="demo-media-caption"><span><i aria-hidden="true"></i> SOPHONBIM / DEFAULT IFC MODEL TOUR</span><button class="demo-control" type="button" data-demo-toggle="orbit-demo" aria-controls="orbit-demo" aria-label="Play model orbit demo">Play</button></div>
+            <video id="orbit-demo" data-demo data-demo-label="model orbit" muted loop playsinline preload="none" poster="assets/workspace-default-ifc.png" aria-label="Recorded SophonBIM workspace orbiting the bundled Duplex IFC model"><source data-src="assets/duplex-orbit.webm" type="video/webm"><img src="assets/workspace-default-ifc.png" alt="SophonBIM workspace showing the Duplex IFC model" width="1600" height="1000"></video>
+            <button class="demo-play-overlay" type="button" data-demo-toggle="orbit-demo" data-demo-overlay="orbit-demo" aria-controls="orbit-demo" aria-label="Play model orbit demo"><span aria-hidden="true">▶</span> Play recording</button>
+          </div>
+        </div>
+        <div class="demo-showcase demo-showcase--reverse agent-demo-showcase" id="agent-demo" aria-labelledby="agent-demo-title">
+          <div class="demo-showcase-copy">
+            <p class="step-kicker">JEV + DEEPSEEK / RECORDED DESKTOP RUN</p>
+            <h3 id="agent-demo-title">A real agent response. Three doors selected.</h3>
+            <p>In the bundled Duplex IFC, ask Jev to select doors by mark. Watch Jev choose the BIM action, DeepSeek extract the values, and SophonBIM select the matching elements.</p>
+            <ol><li><span>01</span> Ask for A101, A102, and B101</li><li><span>02</span> Jev and DeepSeek resolve the request</li><li><span>03</span> Three IFC doors are selected</li></ol>
+            <small>Recorded from a real local desktop session with configured AI services. The original footage is presented as a full-workspace view.</small>
+          </div>
+          <div class="demo-showcase-media agent-demo-media">
+            <div class="demo-media-caption"><span><i aria-hidden="true"></i> SOPHONBIM / LIVE AGENT RECORDING</span><button class="demo-control" type="button" data-demo-toggle="jev-demo" aria-controls="jev-demo" aria-label="Play Jev and DeepSeek demo">Play</button></div>
+            <video id="jev-demo" data-demo data-demo-label="Jev and DeepSeek" muted loop playsinline preload="none" poster="assets/jev-deepseek-live-enhanced-poster.png" aria-label="Real SophonBIM desktop recording: Jev and DeepSeek select three doors by mark in the Duplex IFC model"><source data-src="assets/jev-deepseek-live-enhanced.webm" type="video/webm"><img src="assets/jev-deepseek-live-enhanced-poster.png" alt="Jev and DeepSeek workflow completed with three IFC doors selected" width="1920" height="1200"></video>
+            <button class="demo-play-overlay" type="button" data-demo-toggle="jev-demo" data-demo-overlay="jev-demo" aria-controls="jev-demo" aria-label="Play Jev and DeepSeek demo"><span aria-hidden="true">▶</span> Play recording</button>
+          </div>
+        </div>
+        <div class="demo-showcase" aria-labelledby="demo-showcase-title">
+          <div class="demo-showcase-copy"><p class="step-kicker">RECORDED MANUAL WORKFLOW / DEFAULT IFC</p><h3 id="demo-showcase-title">See semantic BIM in motion.</h3><p>A real local session with the bundled Duplex IFC. Open the IFC workspace, inspect entity types, and select every door result.</p><ol><li><span>01</span> Open IFC Query</li><li><span>02</span> Choose Types → IFCDOOR</li><li><span>03</span> Select results in the viewport</li></ol><small>No AI key is used in this recorded walkthrough.</small><small class="demo-source">The default model comes from the web-ifc sample collection. <a href="docs.html#workspace">Source and license →</a></small></div>
+          <div class="demo-showcase-media"><div class="demo-media-caption"><span><i aria-hidden="true"></i> SOPHONBIM / LIVE UI RECORDING</span><button class="demo-control" type="button" data-demo-toggle="ifc-demo" aria-controls="ifc-demo" aria-label="Play IFC Query demo">Play</button></div><video id="ifc-demo" data-demo muted loop playsinline preload="none" poster="assets/ifc-query-poster.png" aria-label="Recorded SophonBIM IFC Query workflow: open Types, choose IFCDOOR, and select the door results"><source data-src="assets/ifc-query-demo.webm" type="video/webm"><img src="assets/ifc-query-poster.png" alt="SophonBIM IFC Query workspace with the default Duplex model" width="1280" height="800"></video><button class="demo-play-overlay" type="button" data-demo-toggle="ifc-demo" data-demo-overlay="ifc-demo" aria-controls="ifc-demo" aria-label="Play IFC Query demo"><span aria-hidden="true">▶</span> Play recording</button></div>
+        </div>
+        <div class="tutorial-steps-heading"><p class="step-kicker">FOLLOW THE WORKFLOW</p><h3>Try it in your workspace.</h3><p>Use these four steps to move from a loaded IFC model to a reviewed, reusable record of the action.</p></div>
+        <nav class="tutorial-rail" aria-label="Jump to tutorial steps">
+          <a href="#step-prepare"><span>01</span><strong>Prepare</strong><small>Project + keys</small></a>
+          <a href="#step-ask"><span>02</span><strong>Ask Jev</strong><small>Natural language</small></a>
+          <a href="#step-review"><span>03</span><strong>Review</strong><small>Action + result</small></a>
+          <a href="#step-learn"><span>04</span><strong>Learn</strong><small>Episode + dataset</small></a>
+        </nav>
+        <div class="tutorial-steps">
+          <article class="tutorial-step" id="step-prepare" aria-labelledby="step-prepare-title">
+            <div class="tutorial-instructions">
+              <p class="step-kicker">01 / SET UP THE CONTEXT</p>
+              <h3 id="step-prepare-title">Open a real model.</h3>
+              <p>Jev grounds its decisions in the project you have open. Start with the bundled IFC model or add your own semantic IFC file.</p>
+              <ol class="instruction-list">
+                <li><span>1</span><div>Launch the Windows desktop app and sign in to your local workspace.</div></li>
+                <li><span>2</span><div>In <strong>Workspace account</strong>, add your Jev API key. Add a DeepSeek key for parameter extraction and explanations of unsupported requests.</div></li>
+                <li><span>3</span><div>Use <strong>Append model</strong> to import an IFC, or begin with the included Duplex IFC. Check the model tree before asking a model-specific question.</div></li>
+              </ol>
+              <p class="step-outcome"><span>READY WHEN</span> The model appears in the tree and the Jev prompt is available.</p>
+            </div>
+            <div class="tutorial-visual setup-visual" aria-label="Illustration of project setup">
+              <div class="visual-bar"><span class="visual-led"></span><span>WORKSPACE CONTEXT</span><span>01 / 04</span></div>
+              <div class="setup-stack">
+                <div class="setup-item"><span class="setup-icon">◇</span><div><strong>Duplex IFC</strong><small>Semantic model loaded</small></div><span class="setup-state">READY</span></div>
+                <div class="setup-item"><span class="setup-icon">⌘</span><div><strong>Jev</strong><small>Account key configured</small></div><span class="setup-state">READY</span></div>
+                <div class="setup-item"><span class="setup-icon">＋</span><div><strong>Append model</strong><small>Bring your own IFC</small></div><span class="setup-arrow">↗</span></div>
+              </div>
+              <div class="visual-caption">Your active project supplies the model and coordination candidates.</div>
+            </div>
+          </article>
+          <article class="tutorial-step" id="step-ask" aria-labelledby="step-ask-title">
+            <div class="tutorial-instructions">
+              <p class="step-kicker">02 / TELL JEV WHAT YOU NEED</p>
+              <h3 id="step-ask-title">Ask in plain English.</h3>
+              <p>Use the Jev prompt at the bottom of the workspace. A specific request gives Jev a clear action and target.</p>
+              <ol class="instruction-list">
+                <li><span>1</span><div>Try <strong>“List all door entities.”</strong> to query IFC semantics without manually navigating the tree.</div></li>
+                <li><span>2</span><div>For coordination, ask for one action at a time: run an existing clash test, show a result, or change its review status.</div></li>
+                <li><span>3</span><div>Press <strong>Enter</strong> or the run button. Jev selects a supported tool and validates model-specific targets before execution.</div></li>
+              </ol>
+              <p class="step-outcome"><span>TIP</span> DeepSeek can extract free-form parameters and explain unsupported requests.</p>
+            </div>
+            <div class="tutorial-visual prompt-visual" aria-label="Illustration of a Jev request">
+              <div class="visual-bar"><span class="visual-led"></span><span>JEV PROMPT</span><span>02 / 04</span></div>
+              <div class="prompt-example"><span class="prompt-prefix">YOU ASK</span><blockquote>“List all door entities.”</blockquote><span class="prompt-send" aria-hidden="true">↗</span></div>
+              <div class="prompt-path"><span>LANGUAGE</span><i></i><span>JEV DECISION</span><i></i><span>BIM TOOL</span></div>
+              <div class="visual-caption">A natural language request maps to a bounded application action.</div>
+            </div>
+          </article>
+          <article class="tutorial-step" id="step-review" aria-labelledby="step-review-title">
+            <div class="tutorial-instructions">
+              <p class="step-kicker">03 / INSPECT THE OUTCOME</p>
+              <h3 id="step-review-title">See what happened.</h3>
+              <p>Jev shows its completed decision path and the resulting BIM output. Keep the human in the loop by inspecting the result in the model.</p>
+              <ol class="instruction-list">
+                <li><span>1</span><div>Read the action and result in the Jev panel. Select a returned item to show it in the viewer when available.</div></li>
+                <li><span>2</span><div>Check the model, properties, clash result, or issue before continuing. Ask a follow-up as a separate action.</div></li>
+                <li><span>3</span><div>Open <strong>Activity Log</strong> to inspect the recorded interaction and its outcome. Unsupported requests are shown as unavailable instead of silently changing the project.</div></li>
+              </ol>
+              <p class="step-outcome"><span>RESULT</span> You can trace the request, chosen action, and visible outcome.</p>
+            </div>
+            <div class="tutorial-visual review-visual" aria-label="Illustration of a Jev action trace">
+              <div class="visual-bar"><span class="visual-led"></span><span>ACTION TRACE</span><span>03 / 04</span></div>
+              <div class="trace-list"><div><span>01</span><strong>Request received</strong><em>DONE</em></div><div><span>02</span><strong>IFC tool selected</strong><em>DONE</em></div><div><span>03</span><strong>Targets validated</strong><em>DONE</em></div><div><span>04</span><strong>Results available</strong><em>DONE</em></div></div>
+              <div class="visual-caption">Illustrative trace; actual steps and results depend on the request.</div>
+            </div>
+          </article>
+          <article class="tutorial-step" id="step-learn" aria-labelledby="step-learn-title">
+            <div class="tutorial-instructions">
+              <p class="step-kicker">04 / TURN USE INTO LEARNING DATA</p>
+              <h3 id="step-learn-title">Build the feedback loop.</h3>
+              <p>Real usage can reveal which paths worked and where the assistant needs improvement. SophonBIM turns local activity into material people can review.</p>
+              <ol class="instruction-list">
+                <li><span>1</span><div>Open <strong>Episode Labeling</strong>. Runtime actions are grouped into task Episodes while the original log stays intact.</div></li>
+                <li><span>2</span><div>Label intent, outcome evidence, useful steps, and preferred paths; submit the annotation for independent review.</div></li>
+                <li><span>3</span><div>In <strong>Dataset versions</strong>, build a draft from eligible reviewed Episodes, inspect quality, then freeze and export a versioned dataset.</div></li>
+              </ol>
+              <p class="step-outcome"><span>LEARNING LOOP</span> The exported dataset can support future evaluation and model improvement; the app does not retrain itself automatically.</p>
+            </div>
+            <div class="tutorial-visual learning-visual" aria-label="Illustration of the human-reviewed learning pipeline">
+              <div class="visual-bar"><span class="visual-led"></span><span>LEARNING PIPELINE</span><span>04 / 04</span></div>
+              <div class="learning-chain"><div><b>01</b><strong>Activity</strong><small>Real user actions</small></div><span>↓</span><div><b>02</b><strong>Episodes</strong><small>Task sequences</small></div><span>↓</span><div><b>03</b><strong>Human review</strong><small>Intent + outcome</small></div><span>↓</span><div><b>04</b><strong>Versioned data</strong><small>Ready to evaluate</small></div></div>
+            </div>
+          </article>
+        </div>
+        <p class="tutorial-note">Jev and DeepSeek require separately configured API keys and a local service or desktop app. Core BIM tools and the local Episode workflow remain available without AI keys.</p>
+        <a class="tutorial-docs-link" href="docs.html">Read the complete operation guide <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="download section" id="download" aria-labelledby="download-title">
+      <div class="container download-layout">
+        <div class="download-copy"><p class="section-label"><span>02</span> / DOWNLOAD</p><h2 id="download-title">Your BIM workspace.<br>On your machine.</h2><p>The Windows desktop app runs the local service needed for Jev actions, Activity Log, Episode Labeling, and dataset workflows. Installers will be distributed through GitHub Releases.</p><ul class="download-points"><li>Windows x64 desktop installer</li><li>Project and learning records stored locally</li><li>Core BIM tools work without AI API keys</li></ul></div>
+        <div class="release-card">
+          <div class="release-card-top"><span class="release-label">DESKTOP RELEASE</span><span class="release-chip" id="release-chip">LINK PENDING</span></div>
+          <div class="platform-row"><div class="windows-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M2 6.5 14 4v11H2V6.5Zm14-2.8L30 1v14H16V3.7ZM2 17h12v11L2 25.5V17Zm14 0h14v14l-14-2.8V17Z"/></svg></div><div><h3>SophonBIM for Windows</h3><p>Windows x64 · .exe installer</p></div></div>
+          <div class="release-divider"></div>
+          <div class="release-details"><div><span>VERSION</span><strong id="release-version">Pending</strong></div><div><span>DELIVERY</span><strong>GitHub Releases</strong></div></div>
+          <a class="button button-download" id="release-download" href="#download" aria-disabled="true">Download link pending <span aria-hidden="true">↗</span></a>
+          <p class="download-status" id="download-status" role="status">The direct installer link will appear here after the public repository and release asset are confirmed.</p>
+          <a class="all-releases" id="all-releases" href="#download" aria-disabled="true">View release history <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#intro"><img src="assets/mark.svg" width="22" height="22" alt=""><span>Sophon<span>BIM</span></span></a><div class="footer-credit"><span>Developed under the guidance of <a class="footer-professor" href="https://www.arch.hku.hk/staff/upad/ma-jun/">Prof. Jun Ma, HKU Faculty of Architecture</a></span><a href="mailto:albertxu@hku.hk">albertxu@hku.hk</a></div><span>© 2026 SophonBIM</span><a href="#intro">Back to top ↑</a></div><p class="container footer-disclosure">When using Jev or DeepSeek, your request and necessary project context are sent to the configured external AI services.</p></footer>
+</body>
+</html>

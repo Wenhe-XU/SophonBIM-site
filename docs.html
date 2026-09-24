@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d13">
+  <meta name="description" content="SophonBIM documentation: setup, Jev and DeepSeek agent capabilities, BIM coordination, Episode labeling, datasets, and troubleshooting.">
+  <title>Documentation — SophonBIM</title>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="docs.css">
+  <script type="module" src="docs.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#docs-main">Skip to documentation</a>
+  <div class="page-glow" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#intro" aria-label="SophonBIM home"><img src="assets/mark.svg" width="28" height="28" alt=""><span>Sophon<span>BIM</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="index.html#intro">Intro</a><a href="index.html#tutorial">Tutorial</a><a href="docs.html" aria-current="page">Docs</a><a href="index.html#download">Download</a></nav>
+      <a class="header-action" href="index.html#download">Get the desktop app <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="docs-main">
+    <section class="docs-hero container" aria-labelledby="docs-title">
+      <p class="eyebrow"><span class="signal" aria-hidden="true"></span> SOPHONBIM / DOCUMENTATION</p>
+      <h1 id="docs-title">Learn the workspace.<br><span>Understand the agent.</span></h1>
+      <p>Step-by-step instructions for the desktop app, a grounded map of Jev + DeepSeek capabilities, and the human-reviewed learning workflow.</p>
+      <div class="docs-search-wrap">
+        <label for="docs-search">Search this guide</label>
+        <div class="docs-search-box"><span aria-hidden="true">⌕</span><input id="docs-search" type="search" placeholder="Try “clash”, “DeepSeek”, or “dataset”" autocomplete="off"><kbd>/</kbd></div>
+        <div class="docs-search-results" id="docs-search-results" role="status" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <section class="docs-hub container" aria-labelledby="docs-hub-title">
+      <div class="docs-hub-heading"><p class="section-label"><span>01</span> / GUIDE MAP</p><h2 id="docs-hub-title">Choose a path.</h2></div>
+      <div class="docs-category-grid">
+        <a href="#start"><span>01 / GET STARTED</span><h3>Set up and navigate</h3><p>Launch the app, import models, inspect elements, and run the first coordination test.</p><b aria-hidden="true">↗</b></a>
+        <a href="#jev"><span>02 / AI OPERATIONS</span><h3>Jev + DeepSeek</h3><p>Understand the decision pipeline, supported actions, exact prompt examples, and limits.</p><b aria-hidden="true">↗</b></a>
+        <a href="#learning"><span>03 / LEARNING DATA</span><h3>Review and improve</h3><p>Turn real user activity into reviewed Episodes and versioned datasets.</p><b aria-hidden="true">↗</b></a>
+      </div>
+      <div class="docs-start-here"><strong>Start here</strong><a href="#start">Install and sign in <span>→</span></a><a href="#recipes">Try an AI request <span>→</span></a><a href="#limits">Read the capability boundary <span>→</span></a></div>
+    </section>
+
+    <div class="docs-layout container">
+      <aside class="docs-sidebar" aria-label="Documentation contents">
+        <div class="docs-sidebar-title">ON THIS PAGE</div>
+        <nav>
+          <span>FOUNDATIONS</span>
+          <a href="#start">Quick start</a>
+          <a href="#workspace">Workspace and models</a>
+          <a href="#coordination">Coordination workflow</a>
+          <span>AI AGENT</span>
+          <a href="#jev">How Jev + DeepSeek work</a>
+          <a href="#capabilities">Current capability map</a>
+          <a href="#recipes">Prompt examples</a>
+          <span>LEARNING AND SUPPORT</span>
+          <a href="#learning">Episode and dataset flow</a>
+          <a href="#exports">Save and export</a>
+          <a href="#limits">Important boundaries</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+        </nav>
+      </aside>
+
+      <div class="docs-content">
+        <section class="doc-section" id="start">
+          <div class="doc-heading"><span>FOUNDATIONS / 01</span><h2>Quick start</h2><p>Use the Windows desktop app for Jev, local logs, Episode labeling, and datasets. The static website is a guide and download entry point.</p></div>
+          <ol class="doc-steps">
+            <li><b>01</b><div><h3>Launch and sign in</h3><p>Open the Windows x64 app and sign in with a local workspace account. If an account still uses a public demo password, change it to a private password before adding AI keys.</p></div></li>
+            <li><b>02</b><div><h3>Configure AI access</h3><p>Open <strong>Workspace account</strong> from the account avatar. Add the Jev key for tool decisions; add the DeepSeek key for parameter extraction and explanations of unsupported requests. Keys are encrypted per account in local runtime data.</p></div></li>
+            <li><b>03</b><div><h3>Load a semantic IFC model</h3><p>Use the included Duplex IFC or choose <strong>Append model</strong>. For AI property questions, use IFC: GLB and glTF provide geometry and metadata, but do not become full IFC semantic models.</p></div></li>
+            <li><b>04</b><div><h3>Make a first request</h3><p>In the Jev prompt at the bottom of the workbench, enter <code>List all door entities.</code> Press Enter. Check the returned list and select a result to show it in the model when a visible mesh exists.</p></div></li>
+          </ol>
+          <p class="doc-small-note">The included Duplex IFC is SophonBIM's default model. The file comes from <a href="https://github.com/ThatOpen/engine_web-ifc/blob/main/tests/ifcfiles/public/duplex.ifc" target="_blank" rel="noopener noreferrer">That Open Company's public web-ifc regression fixture ↗</a>, distributed under MPL-2.0.</p>
+          <div class="doc-callout"><strong>Keyboard tip</strong><p>Enter sends the prompt. Shift+Enter adds a line break. A specific action and a named target are easier to validate than a long multi-part command.</p></div>
+        </section>
+
+        <section class="doc-section" id="workspace">
+          <div class="doc-heading"><span>FOUNDATIONS / 02</span><h2>Workspace and models</h2><p>The tree, 3D viewport, inspector, and ribbon work together. Jev uses this current project state rather than a hidden sample model.</p></div>
+          <div class="doc-grid-two">
+            <div class="doc-mini-card"><h3>Import and select</h3><p>Choose <strong>Append model</strong> for IFC, GLB, or glTF. Select in the tree or viewport; Ctrl-click extends the selection. For external-buffer glTF, add its <code>.gltf</code> and referenced <code>.bin</code> files together.</p></div>
+            <div class="doc-mini-card"><h3>Inspect in 3D</h3><p>Use <strong>Section box</strong> for clipping and <strong>Measure</strong> for two surface points. Double-click an object to focus it. The inspector shows identity and properties for selected elements.</p></div>
+          </div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Common controls</caption><thead><tr><th>Input</th><th>Action</th></tr></thead><tbody><tr><td>Drag / right-drag</td><td>Orbit / pan</td></tr><tr><td>Wheel or pinch</td><td>Zoom</td></tr><tr><td>Click / Ctrl-click</td><td>Select / extend selection</td></tr><tr><td>F / B / M</td><td>Fit all / section box / measure</td></tr><tr><td>Ctrl+Z / Ctrl+Shift+Z</td><td>Undo / redo</td></tr><tr><td>Ctrl+S</td><td>Save the project locally</td></tr></tbody></table></div>
+        </section>
+
+        <section class="doc-section" id="coordination">
+          <div class="doc-heading"><span>FOUNDATIONS / 03</span><h2>Coordinate a project</h2><p>The manual workflow remains available whether or not AI keys are configured.</p></div>
+          <ol class="doc-steps">
+            <li><b>01</b><div><h3>Create a test</h3><p>Open <strong>Coordination → New test</strong>. Select two model, selection-set, or all-element scopes. Choose <strong>Hard</strong> for contact/intersection or <strong>Clearance</strong> for a threshold in millimetres.</p></div></li>
+            <li><b>02</b><div><h3>Run and inspect</h3><p>Choose <strong>Run test</strong>. Select a clash row and double-click to focus the pair. Use the status control to mark review progress, or create an issue linked to that result.</p></div></li>
+            <li><b>03</b><div><h3>Capture and deliver</h3><p>Save a viewpoint with the current camera and visibility. In <strong>Output</strong>, export the coordination report, clash CSV, viewport snapshot, or portable project file.</p></div></li>
+          </ol>
+          <div class="doc-callout"><strong>After model changes</strong><p>Imported or transformed geometry and edited tests can mark clash results stale. Rerun the test before treating those results as current.</p></div>
+        </section>
+
+        <section class="doc-section" id="jev">
+          <div class="doc-heading"><span>AI AGENT / 01</span><h2>How Jev + DeepSeek work</h2><p>The composite agent has a decision stage and, when needed, a parameter stage. Both operate within SophonBIM's actual tool and project context.</p></div>
+          <div class="agent-pipeline" aria-label="Agent workflow"><div><b>01</b><strong>Your request</strong><small>Plain English in the Jev prompt</small></div><span>→</span><div><b>02</b><strong>Jev decision</strong><small>One available platform action</small></div><span>→</span><div><b>03</b><strong>DeepSeek if needed</strong><small>Parameter extraction or unsupported-request explanation</small></div><span>→</span><div><b>04</b><strong>Local validation</strong><small>Target, value, and action checks</small></div><span>→</span><div><b>05</b><strong>BIM result</strong><small>Action trace and visible output</small></div></div>
+          <div class="doc-grid-two">
+            <div class="doc-mini-card"><h3>What Jev decides</h3><p>Jev chooses one bounded action from the current catalog, then resolves model, element, clash, or issue targets from the open project. It can choose <strong>Not currently supported</strong> when no single action covers the whole request.</p></div>
+            <div class="doc-mini-card"><h3>When DeepSeek joins</h3><p>DeepSeek extracts missing free-form parameters for compound filters, names, descriptions, or issue edits. It may also briefly explain an unsupported request, without executing an action. Structured extraction follows a request-specific JSON schema with a 20-second timeout; extracted values are validated locally before execution.</p></div>
+          </div>
+          <div class="doc-callout"><strong>What the trace means</strong><p>Completed Jev decisions appear as the workflow runs. A parameter card appears after validated DeepSeek extraction. An invalid or timed-out plan does not mutate the project. Tool classes exist, but the current Action Gate policy is <code>allow_all</code>; the class labels are not a human approval gate.</p></div>
+        </section>
+
+        <section class="doc-section" id="capabilities">
+          <div class="doc-heading"><span>AI AGENT / 02</span><h2>Current capability map</h2><p>These are families of actions in the implemented catalog. The exact candidate targets depend on the active project and the semantic properties present in its IFC models.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table capability-table"><caption>Jev actions by task</caption><thead><tr><th>Area</th><th>What you can ask</th><th>Conditions</th></tr></thead><tbody>
+            <tr><td>IFC discovery</td><td>List entity types and elements; inspect one entity; query a property, spatial contents, wall openings, or space boundaries; select query results; count by type or floor.</td><td>Requires a semantic IFC model and relevant properties.</td></tr>
+            <tr><td>Compound IFC queries</td><td>Use multiple AND filters, value lists, numeric ranges, exclusions, aliases, and unit conversion. Select elements by type, one property, or bounded composite properties.</td><td>DeepSeek extracts missing parameters. Named recipes are offered only when the model has their required properties.</td></tr>
+            <tr><td>Viewer and project</td><td>Fit, focus, change standard view or projection; grid, X-ray, visibility, section box; selection sets, viewpoints, colors, undo/redo, rename and save.</td><td>Selection-dependent actions require a valid current selection.</td></tr>
+            <tr><td>Clash coordination</td><td>Create, edit, and run hard or clearance tests; list, summarize, focus, or review current results.</td><td>Scopes and result IDs must exist in the current project.</td></tr>
+            <tr><td>Issues</td><td>Create from a selection or clash; list and summarize; change status, priority, title, description, assignee, due date, or add a review comment.</td><td>The referenced selection, clash, or issue must exist.</td></tr>
+            <tr><td>Output</td><td>Export IFC result CSV, clash CSV, HTML report, PNG snapshot, or portable project.</td><td>Some exports need existing results; files are downloaded locally.</td></tr>
+          </tbody></table></div>
+          <p class="doc-small-note">A composite IFC query combines property filters inside one action; it is not an arbitrary multi-step agent plan. Jev/DeepSeek actions require the desktop app or <code>npm start</code> local service. The standalone HTML and static Pages build do not have the AI endpoint.</p>
+        </section>
+
+        <section class="doc-section" id="recipes">
+          <div class="doc-heading"><span>AI AGENT / 03</span><h2>Prompts you can try</h2><p>Use these as one-action examples. Replace names and IDs with those shown in your own project.</p></div>
+          <div class="prompt-recipes">
+            <div><span>IFC / JEV</span><code>List all door entities.</code><p>Lists semantic doors in the selected IFC model.</p></div>
+            <div><span>COMPOUND QUERY / JEV + DEEPSEEK</span><code>Find the doors marked A101, A102, or B101.</code><p>Extracts a value list and checks it against IFC properties. This example is available in the bundled Duplex IFC.</p></div>
+            <div><span>RANGE + UNITS / JEV + DEEPSEEK</span><code>Find second-floor casement windows between 800 and 900 millimetres wide.</code><p>Extracts floor, family, and width range, then normalizes units. The required property fields must exist in the active model.</p></div>
+            <div><span>COORDINATION / JEV + DEEPSEEK</span><code>Create MEP clearance between Structure.ifc and MEP.ifc at 50 mm and run it.</code><p>Creates and runs one test when those two models are in the current project.</p></div>
+            <div><span>ISSUES / JEV + DEEPSEEK</span><code>Create an issue for clash result 2 titled Resolve kitchen door clearance. Description: Check the wall and door clearance.</code><p>First create and run a clash test in your project. Use this prompt only if that test actually produces result 2; the fresh default project has no clash results. Extracted issue text is validated before creation.</p></div>
+            <div><span>SUMMARIES / JEV</span><code>Count issues by status.</code><p>Summarizes current project issues by their actual statuses.</p></div>
+          </div>
+          <div class="doc-callout"><strong>Prompt pattern</strong><p>Name one action, the target, and any needed values. First create and run a test named <strong>Duplex clearance test</strong>; if it produces result 2, you can ask <code>Show clash result 2 from the Duplex clearance test.</code> Then issue a separate request to change its status.</p></div>
+        </section>
+
+        <section class="doc-section" id="learning">
+          <div class="doc-heading"><span>LEARNING / 01</span><h2>From user behavior to learning data</h2><p>The feedback loop is local and human-reviewed. It prepares data for future evaluation and model improvement; it does not retrain the model automatically.</p></div>
+          <ol class="doc-steps">
+            <li><b>01</b><div><h3>Inspect Activity Log</h3><p>Open <strong>Activity Log</strong> from the workbench. Runtime interactions are recorded as structured, redacted events with action and outcome information.</p></div></li>
+            <li><b>02</b><div><h3>Open Episode Labeling</h3><p>Go to <strong>Episode Labeling</strong>. Filter the queue to runtime candidates, select an Episode, inspect its timeline, and confirm or correct task boundaries. Exclude records with insufficient evidence.</p></div></li>
+            <li><b>03</b><div><h3>Label and review</h3><p>Mark intent, target, outcome evidence, step value, and preferred path. Save a draft or submit it. An independent reviewer can accept the annotation; suggestions are not silently saved as human labels.</p></div></li>
+            <li><b>04</b><div><h3>Compare paths</h3><p>In <strong>Path comparison</strong>, compare submitted Episodes with the same intent and record a preferred path, equivalence, or insufficient evidence.</p></div></li>
+            <li><b>05</b><div><h3>Build a dataset version</h3><p>In <strong>Dataset versions</strong>, build a semantic-version draft from eligible reviewed runtime Episodes. Inspect exclusions, split integrity, and <strong>Human quality</strong>; then freeze and export the version and checksum.</p></div></li>
+          </ol>
+          <div class="doc-callout"><strong>Local data boundary</strong><p>Raw logs remain intact. Episode changes and annotation revisions are stored as overlays in the local runtime data directory. Review and dataset publishing depend on account capabilities in the local service.</p></div>
+        </section>
+
+        <section class="doc-section" id="exports">
+          <div class="doc-heading"><span>LEARNING / 02</span><h2>Save, export, and continue</h2><p>Choose the output that matches the next task.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Output choices</caption><thead><tr><th>Action</th><th>What it gives you</th></tr></thead><tbody><tr><td>Save project</td><td>Local browser storage on this device for continued work.</td></tr><tr><td>Export project</td><td>A portable <code>.sophonbim</code> project file with geometry and coordination records.</td></tr><tr><td>Report / Export CSV</td><td>A printable HTML coordination report or a clash register spreadsheet file.</td></tr><tr><td>Snapshot</td><td>A PNG image of the current viewport.</td></tr><tr><td>Dataset export</td><td>Frozen manifest, Episodes, preferences, exclusions, and checksum for a reviewed version.</td></tr></tbody></table></div>
+          <p class="doc-small-note">A saved issue is a local project record. SophonBIM does not send email or cloud notifications from the issue workflow.</p>
+        </section>
+
+        <section class="doc-section" id="limits">
+          <div class="doc-heading"><span>REFERENCE / 01</span><h2>Important boundaries</h2><p>These constraints help you interpret an agent response and choose the right application mode.</p></div>
+          <div class="doc-grid-two boundary-grid">
+            <div class="doc-mini-card"><h3>One platform action per request</h3><p>A request such as “rename the project and export it” is outside the single-action workflow. Ask for each operation separately.</p></div>
+            <div class="doc-mini-card"><h3>Project-grounded targets</h3><p>Jev chooses only from present models, properties, tests, clashes, and issues. A missing target follows a validation error path.</p></div>
+            <div class="doc-mini-card"><h3>IFC semantics are required</h3><p>GLB and glTF can be viewed and coordinated geometrically, but they cannot supply IFC property or spatial relationship queries.</p></div>
+            <div class="doc-mini-card"><h3>No source IFC rewrite</h3><p>Coordination edits change the SophonBIM project, not the imported source files. Jev cannot overwrite a source IFC or email stakeholders.</p></div>
+            <div class="doc-mini-card"><h3>AI needs the local service</h3><p>Static builds cannot call Jev or DeepSeek, write Activity Logs, or publish labeled datasets. API keys may invoke paid external services.</p></div>
+            <div class="doc-mini-card"><h3>Human-reviewed iteration</h3><p>Activity and annotations can become frozen datasets. Automatic training, deployment of a new model, and automatic adoption of suggestions are not implemented.</p></div>
+          </div>
+          <div class="doc-callout"><strong>Data-size boundary</strong><p>Large IFC context can be uploaded to the local service temporarily for an AI request. A single semantic IFC model above 32 MiB is rejected before a paid AI call. Accuracy is probabilistic; verify important results in the workspace.</p></div>
+        </section>
+
+        <section class="doc-section" id="troubleshooting">
+          <div class="doc-heading"><span>REFERENCE / 02</span><h2>When something stops</h2><p>Start with the visible message, then check the current project and service state.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Common issues</caption><thead><tr><th>What you see</th><th>What to check</th></tr></thead><tbody>
+            <tr><td>Jev is unavailable</td><td>Use the desktop app or <code>npm start</code>. Open Workspace account and add a Jev key after replacing any public demo password.</td></tr>
+            <tr><td>Parameter extraction fails</td><td>Add a DeepSeek key for compound filters or free-form fields. Check that the prompt names properties or targets present in this project.</td></tr>
+            <tr><td>Request unavailable</td><td>The whole request may need more than one action or an unsupported feature. Split it into supported, single-action prompts.</td></tr>
+            <tr><td>No visible object for a query result</td><td>The IFC semantic entity may have unsupported geometry. Inspect its properties; a semantic match does not guarantee a renderable mesh.</td></tr>
+            <tr><td>Clash results are stale</td><td>Rerun the test after imports, transformations, removals, or test edits.</td></tr>
+            <tr><td>Episode labeling cannot save</td><td>Open it from a signed-in desktop/local-service session. Static hosting cannot write local learning records.</td></tr>
+          </tbody></table></div>
+          <div class="docs-end-link"><p>Need to revisit the four-step overview?</p><a href="index.html#tutorial">Return to Tutorial <span aria-hidden="true">↗</span></a></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html#intro"><img src="assets/mark.svg" width="22" height="22" alt=""><span>Sophon<span>BIM</span></span></a><div class="footer-credit"><span>Developed under the guidance of <a class="footer-professor" href="https://www.arch.hku.hk/staff/upad/ma-jun/">Prof. Jun Ma, HKU Faculty of Architecture</a></span><a href="mailto:albertxu@hku.hk">albertxu@hku.hk</a></div><span>© 2026 SophonBIM</span><a href="#docs-main">Back to top ↑</a></div><p class="container footer-disclosure">When using Jev or DeepSeek, your request and necessary project context are sent to the configured external AI services.</p></footer>
+</body>
+</html>
