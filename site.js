@@ -3,34 +3,70 @@
 const githubRepository = '';
 const releaseTag = '';
 const installerName = '';
-const downloadButton = document.getElementById('release-download');
+const armReleaseTag = '';
+const armInstallerName = '';
 const installNotice = document.getElementById('install-notice');
+const armNotice = document.getElementById('install-notice-arm');
+const pendingNotice = document.getElementById('install-notice-pending');
 const confirmedDownload = document.getElementById('confirmed-download');
+const releases = {
+  x64: {
+    label: 'x64', tag: releaseTag, installerName,
+    button: document.getElementById('release-download'),
+    status: document.getElementById('download-status'),
+    version: document.getElementById('release-version'),
+  },
+  arm64: {
+    label: 'ARM64', tag: armReleaseTag, installerName: armInstallerName,
+    button: document.getElementById('release-download-arm'),
+    status: document.getElementById('download-status-arm'),
+    version: document.getElementById('release-version-arm'),
+  },
+};
 
-if (githubRepository && releaseTag && installerName) {
-  const encodedAsset = encodeURIComponent(installerName);
+for (const release of Object.values(releases)) {
+  if (!githubRepository || !release.tag || !release.installerName) continue;
   const base = `https://github.com/${githubRepository}`;
-  const allReleases = document.getElementById('all-releases');
-  confirmedDownload.href = `${base}/releases/download/${releaseTag}/${encodedAsset}`;
-  confirmedDownload.hidden = false;
-  document.getElementById('install-notice-pending').hidden = true;
-  downloadButton.innerHTML = 'Download Windows installer <span aria-hidden="true">↗</span>';
-  downloadButton.removeAttribute('data-pending');
-  allReleases.href = `${base}/releases`;
-  allReleases.removeAttribute('aria-disabled');
-  document.getElementById('release-chip').textContent = releaseTag;
-  document.getElementById('release-version').textContent = releaseTag.replace(/^v/i, '');
-  document.getElementById('download-status').textContent = 'Download provided by GitHub Releases.';
+  release.href = `${base}/releases/download/${encodeURIComponent(release.tag)}/${encodeURIComponent(release.installerName)}`;
+  release.button.innerHTML = `Download Windows ${release.label} installer <span aria-hidden="true">↗</span>`;
+  release.button.removeAttribute('data-pending');
+  release.version.textContent = release.tag.replace(/^v/i, '');
+  release.status.textContent = 'Download provided by GitHub Releases.';
 }
 
-function showInstallNotice() {
+const availableReleases = Object.values(releases).filter(release => release.href);
+if (availableReleases.length) {
+  const allReleases = document.getElementById('all-releases');
+  const base = `https://github.com/${githubRepository}`;
+  allReleases.href = `${base}/releases`;
+  allReleases.removeAttribute('aria-disabled');
+  document.getElementById('release-chip').textContent = availableReleases.length === 2
+    ? 'DOWNLOADS AVAILABLE' : `${availableReleases[0].label.toUpperCase()} AVAILABLE`;
+}
+
+function showInstallNotice(architecture = 'x64') {
+  const release = releases[architecture];
+  const available = Boolean(release.href);
+  document.querySelector('.install-notice-label').textContent = `WINDOWS ${release.label.toUpperCase()} INSTALLATION`;
+  armNotice.hidden = architecture !== 'arm64';
+  pendingNotice.hidden = available;
+  pendingNotice.textContent = `The Windows ${release.label} installer is not available for public download yet.`;
+  confirmedDownload.hidden = !available;
+  if (available) {
+    confirmedDownload.href = release.href;
+    confirmedDownload.innerHTML = `Continue to ${release.label} download <span aria-hidden="true">↗</span>`;
+  } else {
+    confirmedDownload.removeAttribute('href');
+  }
   if (!installNotice.open) installNotice.showModal();
 }
 
-downloadButton.addEventListener('click', showInstallNotice);
+for (const [architecture, release] of Object.entries(releases)) {
+  release.button.addEventListener('click', () => showInstallNotice(architecture));
+}
 document.querySelector('[data-install-notice]').addEventListener('click', () => {
   document.getElementById('download').scrollIntoView();
-  showInstallNotice();
+  showInstallNotice('x64');
 });
 for (const button of document.querySelectorAll('[data-close-install-notice]')) {
   button.addEventListener('click', () => installNotice.close());

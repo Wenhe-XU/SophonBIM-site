@@ -171,8 +171,8 @@
               <p>Real usage can reveal which paths worked and where the assistant needs improvement. SophonBIM turns local activity into material people can review.</p>
               <ol class="instruction-list">
                 <li><span>1</span><div>Open <strong>Episode Labeling</strong>. Runtime actions are grouped into task Episodes while the original log stays intact.</div></li>
-                <li><span>2</span><div>Label intent, outcome evidence, useful steps, and preferred paths; submit the annotation for independent review.</div></li>
-                <li><span>3</span><div>In <strong>Dataset versions</strong>, build a draft from eligible reviewed Episodes, inspect quality, then freeze and export a versioned dataset.</div></li>
+                <li><span>2</span><div>Label intent, outcome evidence, useful steps, and preferred paths; submit the annotation. A reviewer can accept or reopen it.</div></li>
+                <li><span>3</span><div>In <strong>Dataset versions</strong>, build a draft from eligible labeled Episodes, inspect quality, then freeze and export a versioned dataset.</div></li>
               </ol>
               <p class="step-outcome"><span>LEARNING LOOP</span> The exported dataset can support future evaluation and model improvement; the app does not retrain itself automatically.</p>
             </div>
@@ -189,14 +189,23 @@
 
     <section class="download section" id="download" aria-labelledby="download-title">
       <div class="container download-layout">
-        <div class="download-copy"><p class="section-label"><span>02</span> / DOWNLOAD</p><h2 id="download-title">Your BIM workspace.<br>On your machine.</h2><p>The Windows desktop app runs the local service needed for Jev actions, Activity Log, Episode Labeling, and dataset workflows. Installers will be distributed through GitHub Releases.</p><ul class="download-points"><li>Windows x64 desktop installer</li><li>Project and learning records stored locally</li><li>Core BIM tools work without AI API keys</li></ul></div>
+        <div class="download-copy"><p class="section-label"><span>02</span> / DOWNLOAD</p><h2 id="download-title">Your BIM workspace.<br>On your machine.</h2><p>The Windows desktop app runs the local service needed for Jev actions, Activity Log, Episode Labeling, and dataset workflows. Installers will be distributed through GitHub Releases.</p><ul class="download-points"><li>Separate Windows x64 and ARM64 download entries</li><li>Project and learning records stored locally</li><li>Core BIM tools work without AI API keys</li></ul></div>
         <div class="release-card">
-          <div class="release-card-top"><span class="release-label">DESKTOP RELEASE</span><span class="release-chip" id="release-chip">LINK PENDING</span></div>
-          <div class="platform-row"><div class="windows-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M2 6.5 14 4v11H2V6.5Zm14-2.8L30 1v14H16V3.7ZM2 17h12v11L2 25.5V17Zm14 0h14v14l-14-2.8V17Z"/></svg></div><div><h3>SophonBIM for Windows</h3><p>Windows x64 · .exe installer</p></div></div>
+          <div class="release-card-top"><span class="release-label">DESKTOP RELEASE</span><span class="release-chip" id="release-chip">LINKS PENDING</span></div>
+          <div class="platform-row"><div class="windows-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M2 6.5 14 4v11H2V6.5Zm14-2.8L30 1v14H16V3.7ZM2 17h12v11L2 25.5V17Zm14 0h14v14l-14-2.8V17Z"/></svg></div><div><h3>SophonBIM for Windows</h3><p>Choose the installer for your processor.</p></div></div>
           <div class="release-divider"></div>
-          <div class="release-details"><div><span>VERSION</span><strong id="release-version">Pending</strong></div><div><span>DELIVERY</span><strong>GitHub Releases</strong></div></div>
-          <button class="button button-download" id="release-download" type="button" data-pending="true">Download notice · installer pending <span aria-hidden="true">↗</span></button>
-          <p class="download-status" id="download-status" role="status">The direct installer link will appear here after the public repository and release asset are confirmed.</p>
+          <div class="download-options" aria-label="Windows installer options">
+            <div class="download-option">
+              <div class="download-option-heading"><div><h4>Windows x64</h4><p>Intel / AMD · .exe installer</p></div><span class="download-option-version" id="release-version">Pending</span></div>
+              <button class="button button-download" id="release-download" type="button" data-pending="true">View x64 download notice <span aria-hidden="true">↗</span></button>
+              <p class="download-status" id="download-status" role="status">The x64 installer is not available for public download yet.</p>
+            </div>
+            <div class="download-option">
+              <div class="download-option-heading"><div><h4>Windows ARM64</h4><p>Windows on Arm · .exe installer</p></div><span class="download-option-version" id="release-version-arm">Pending</span></div>
+              <button class="button button-download" id="release-download-arm" type="button" data-pending="true">View ARM64 download notice <span aria-hidden="true">↗</span></button>
+              <p class="download-status" id="download-status-arm" role="status">The ARM64 installer is not available yet and has not been locally tested.</p>
+            </div>
+          </div>
           <a class="all-releases" id="all-releases" href="#download" aria-disabled="true">View release history <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -209,7 +218,8 @@
     <p class="install-notice-kicker">TEST RELEASE · UNSIGNED</p>
     <h2 id="install-notice-title">Before you install SophonBIM</h2>
     <p id="install-notice-description">This test application does not yet have an official Windows code signature. Windows may show SmartScreen or User Account Control prompts. Review the source and the Windows warning, then continue only if you trust this download.</p>
-    <p class="install-notice-test">The project team reports that AI-driven local security tests found no malicious code in the tested build. These local checks are not an independent security certification.</p>
+    <p class="install-notice-test">The project team reports that AI-driven local security tests found no malicious code in the tested x64 build. These local checks are not an independent security certification.</p>
+    <p class="install-notice-arm" id="install-notice-arm" hidden>The Windows ARM64 version has not been installed or tested locally because the project team does not have a compatible ARM device. The x64 test results do not verify the ARM64 build.</p>
     <p class="install-notice-pending" id="install-notice-pending">The Windows installer is not available for public download yet.</p>
     <div class="install-notice-actions"><button class="button button-quiet" type="button" data-close-install-notice>Back to page</button><a class="button button-primary notice-confirm" id="confirmed-download" href="#download" hidden>Continue to download <span aria-hidden="true">↗</span></a></div>
   </dialog>

@@ -6,7 +6,7 @@ The public, static homepage for SophonBIM. It includes the Intro, Tutorial, oper
 
 Publish the repository from **Settings → Pages → Deploy from a branch → main → /(root)**. The site uses relative links and works at `https://Wenhe-XU.github.io/SophonBIM-site/`. The empty `.nojekyll` file keeps GitHub Pages from processing the static files with Jekyll.
 
-No Windows installer is included in this repository. The download button remains disabled until a validated installer is attached to a GitHub Release. When that release exists, set the exact `githubRepository`, `releaseTag`, and `installerName` values at the top of `site.js`, then verify the direct link on the published page. Keep `.exe` files in GitHub Releases, outside the Pages branch.
+No Windows installer is included in this repository. The x64 and ARM64 buttons show installation notices while their assets are pending. After a release exists, set `githubRepository` and the exact `releaseTag`/`installerName` values for x64 or `armReleaseTag`/`armInstallerName` for ARM64 at the top of `site.js`, then verify the direct links on the published page. The ARM64 notice explains that this architecture has not been locally tested on a compatible device. Keep `.exe` files in GitHub Releases, outside the Pages branch.
 
 ## Local preview
 
