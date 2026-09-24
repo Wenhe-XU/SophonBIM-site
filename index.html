@@ -23,7 +23,7 @@
         <a href="#intro">Intro</a>
         <a href="#tutorial">Tutorial</a>
         <a href="docs.html">Docs</a>
-        <a href="#download">Download</a>
+        <a href="#download" data-install-notice>Download</a>
       </nav>
       <a class="header-action" href="#download">Desktop release status <span aria-hidden="true">↗</span></a>
     </div>
@@ -195,13 +195,24 @@
           <div class="platform-row"><div class="windows-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M2 6.5 14 4v11H2V6.5Zm14-2.8L30 1v14H16V3.7ZM2 17h12v11L2 25.5V17Zm14 0h14v14l-14-2.8V17Z"/></svg></div><div><h3>SophonBIM for Windows</h3><p>Windows x64 · .exe installer</p></div></div>
           <div class="release-divider"></div>
           <div class="release-details"><div><span>VERSION</span><strong id="release-version">Pending</strong></div><div><span>DELIVERY</span><strong>GitHub Releases</strong></div></div>
-          <a class="button button-download" id="release-download" href="#download" aria-disabled="true">Download link pending <span aria-hidden="true">↗</span></a>
+          <button class="button button-download" id="release-download" type="button" data-pending="true">Download notice · installer pending <span aria-hidden="true">↗</span></button>
           <p class="download-status" id="download-status" role="status">The direct installer link will appear here after the public repository and release asset are confirmed.</p>
           <a class="all-releases" id="all-releases" href="#download" aria-disabled="true">View release history <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
   </main>
+
+  <dialog class="install-notice" id="install-notice" aria-labelledby="install-notice-title" aria-describedby="install-notice-description">
+    <div class="install-notice-top"><span class="install-notice-label">WINDOWS INSTALLATION</span><button class="install-notice-close" type="button" data-close-install-notice aria-label="Close installation notice">×</button></div>
+    <div class="install-notice-icon" aria-hidden="true">!</div>
+    <p class="install-notice-kicker">TEST RELEASE · UNSIGNED</p>
+    <h2 id="install-notice-title">Before you install SophonBIM</h2>
+    <p id="install-notice-description">This test application does not yet have an official Windows code signature. Windows may show SmartScreen or User Account Control prompts. Review the source and the Windows warning, then continue only if you trust this download.</p>
+    <p class="install-notice-test">The project team reports that AI-driven local security tests found no malicious code in the tested build. These local checks are not an independent security certification.</p>
+    <p class="install-notice-pending" id="install-notice-pending">The Windows installer is not available for public download yet.</p>
+    <div class="install-notice-actions"><button class="button button-quiet" type="button" data-close-install-notice>Back to page</button><a class="button button-primary notice-confirm" id="confirmed-download" href="#download" hidden>Continue to download <span aria-hidden="true">↗</span></a></div>
+  </dialog>
 
   <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="#intro"><img src="assets/mark.svg" width="22" height="22" alt=""><span>Sophon<span>BIM</span></span></a><div class="footer-credit"><span>Developed under the guidance of <a class="footer-professor" href="https://www.arch.hku.hk/staff/upad/ma-jun/">Prof. Jun Ma, HKU Faculty of Architecture</a></span><a href="mailto:albertxu@hku.hk">albertxu@hku.hk</a></div><span>© 2026 SophonBIM</span><a href="#intro">Back to top ↑</a></div><p class="container footer-disclosure">When using Jev or DeepSeek, your request and necessary project context are sent to the configured external AI services.</p></footer>
 </body>

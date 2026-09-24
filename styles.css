@@ -88,10 +88,30 @@ img{max-width:100%}
 .release-details>div{display:grid;gap:7px}.release-details>div+div{border-left:1px solid var(--line);padding-left:25px}
 .release-details span{font-size:10px;letter-spacing:1.5px;color:#758998;font-weight:750}.release-details strong{font-size:13px;font-weight:650;color:#e0e8e6}
 .button-download{width:100%;height:49px;background:linear-gradient(180deg,#9de7bc,#78d6a5);color:#10231a;justify-content:space-between;padding-inline:18px}
+.button-download{border:0;font-family:inherit;cursor:pointer;text-align:left}
+.button-download:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.button-download[data-pending="true"]{background:#2b3840;color:#c4d4cf}
+.button-download[data-pending="true"]:hover{background:#35464b}
 .button-download[aria-disabled="true"]{background:#2b3840;color:#a2b3b1;box-shadow:none;cursor:not-allowed;transform:none}
 .download-status{font-size:11px;color:#83949c;line-height:1.65;margin:11px 0 0;min-height:36px}
 .all-releases{display:inline-flex;gap:14px;align-items:center;font-size:12px;font-weight:650;color:#a6dcbc;margin-top:18px}
 .all-releases[aria-disabled="true"]{color:#82928d;cursor:not-allowed}
+.install-notice{width:min(540px,calc(100% - 36px));max-height:min(90vh,760px);overflow:auto;border:1px solid rgba(168,216,190,.3);border-radius:18px;padding:28px 30px 30px;background:radial-gradient(circle at 90% 0%,rgba(89,138,124,.16),transparent 42%),#151b23;color:var(--text);box-shadow:0 32px 100px rgba(0,0,0,.65)}
+.install-notice::backdrop{background:rgba(4,7,11,.78);backdrop-filter:blur(9px)}
+.install-notice-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.install-notice-label{color:#8fbfa7;font-size:10px;font-weight:800;letter-spacing:2px}
+.install-notice-close{border:1px solid rgba(215,234,224,.14);border-radius:8px;width:30px;height:30px;background:rgba(255,255,255,.04);color:#b8c7c1;font-size:21px;line-height:1;cursor:pointer}
+.install-notice-close:hover{background:rgba(255,255,255,.1);color:#fff}
+.install-notice-icon{display:grid;place-items:center;width:44px;height:44px;margin-top:26px;border:1px solid rgba(216,181,117,.3);border-radius:11px;background:rgba(216,181,117,.09);color:#e2c38e;font-size:25px;font-weight:650}
+.install-notice-kicker{margin:24px 0 10px;color:#d9ba82;font-size:10px;font-weight:800;letter-spacing:1.8px}
+.install-notice h2{margin:0;font-size:28px;line-height:1.18;letter-spacing:-.045em}
+.install-notice p:not(.install-notice-kicker){color:#b0bec5;font-size:13px;line-height:1.72}
+.install-notice-test{padding:13px 15px;border-left:2px solid #83dfad;background:rgba(131,223,173,.065)}
+.install-notice .install-notice-pending{color:#d7be8d!important}
+.install-notice-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:24px}
+.install-notice-actions .button{border:0;font-family:inherit;cursor:pointer}
+.install-notice-actions .button-quiet{border:1px solid rgba(211,225,237,.16)}
+.notice-confirm[hidden],.install-notice-pending[hidden]{display:none}
 .site-footer{border-top:1px solid rgba(220,228,238,.08);background:#0b0d13}
 .footer-inner{min-height:95px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#6f7b87;font-size:11px}
 .footer-brand{font-size:15px;color:#dce8e2}.footer-brand span span{color:#9aaaac}

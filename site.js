@@ -3,21 +3,41 @@
 const githubRepository = '';
 const releaseTag = '';
 const installerName = '';
+const downloadButton = document.getElementById('release-download');
+const installNotice = document.getElementById('install-notice');
+const confirmedDownload = document.getElementById('confirmed-download');
 
 if (githubRepository && releaseTag && installerName) {
   const encodedAsset = encodeURIComponent(installerName);
   const base = `https://github.com/${githubRepository}`;
-  const download = document.getElementById('release-download');
   const allReleases = document.getElementById('all-releases');
-  download.href = `${base}/releases/download/${releaseTag}/${encodedAsset}`;
-  download.innerHTML = 'Download Windows installer <span aria-hidden="true">↗</span>';
-  download.removeAttribute('aria-disabled');
+  confirmedDownload.href = `${base}/releases/download/${releaseTag}/${encodedAsset}`;
+  confirmedDownload.hidden = false;
+  document.getElementById('install-notice-pending').hidden = true;
+  downloadButton.innerHTML = 'Download Windows installer <span aria-hidden="true">↗</span>';
+  downloadButton.removeAttribute('data-pending');
   allReleases.href = `${base}/releases`;
   allReleases.removeAttribute('aria-disabled');
   document.getElementById('release-chip').textContent = releaseTag;
   document.getElementById('release-version').textContent = releaseTag.replace(/^v/i, '');
   document.getElementById('download-status').textContent = 'Download provided by GitHub Releases.';
 }
+
+function showInstallNotice() {
+  if (!installNotice.open) installNotice.showModal();
+}
+
+downloadButton.addEventListener('click', showInstallNotice);
+document.querySelector('[data-install-notice]').addEventListener('click', () => {
+  document.getElementById('download').scrollIntoView();
+  showInstallNotice();
+});
+for (const button of document.querySelectorAll('[data-close-install-notice]')) {
+  button.addEventListener('click', () => installNotice.close());
+}
+installNotice.addEventListener('click', event => {
+  if (event.target === installNotice) installNotice.close();
+});
 
 for (const link of document.querySelectorAll('a[aria-disabled="true"]')) {
   link.addEventListener('click', event => event.preventDefault());
