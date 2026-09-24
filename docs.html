@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0d13">
-  <meta name="description" content="SophonBIM documentation: setup, Jev and DeepSeek agent capabilities, BIM coordination, Episode labeling, datasets, and troubleshooting.">
+  <meta name="description" content="SophonBIM documentation: step-by-step desktop workflows, Activity Log, Jev and DeepSeek, Episode labeling, and versioned learning-data standards.">
   <title>Documentation — SophonBIM</title>
   <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
   <link rel="stylesheet" href="styles.css">
@@ -18,7 +18,7 @@
     <div class="container header-inner">
       <a class="brand" href="index.html#intro" aria-label="SophonBIM home"><img src="assets/mark.svg" width="28" height="28" alt=""><span>Sophon<span>BIM</span></span></a>
       <nav class="main-nav" aria-label="Main navigation"><a href="index.html#intro">Intro</a><a href="index.html#tutorial">Tutorial</a><a href="docs.html" aria-current="page">Docs</a><a href="index.html#download">Download</a></nav>
-      <a class="header-action" href="index.html#download">Get the desktop app <span aria-hidden="true">↗</span></a>
+      <a class="header-action" href="index.html#download">Desktop release status <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -26,10 +26,10 @@
     <section class="docs-hero container" aria-labelledby="docs-title">
       <p class="eyebrow"><span class="signal" aria-hidden="true"></span> SOPHONBIM / DOCUMENTATION</p>
       <h1 id="docs-title">Learn the workspace.<br><span>Understand the agent.</span></h1>
-      <p>Step-by-step instructions for the desktop app, a grounded map of Jev + DeepSeek capabilities, and the human-reviewed learning workflow.</p>
+      <p>Step-by-step instructions for the desktop app, including Activity Log inspection, Jev + DeepSeek actions, and the standards behind reusable learning data.</p>
       <div class="docs-search-wrap">
         <label for="docs-search">Search this guide</label>
-        <div class="docs-search-box"><span aria-hidden="true">⌕</span><input id="docs-search" type="search" placeholder="Try “clash”, “DeepSeek”, or “dataset”" autocomplete="off"><kbd>/</kbd></div>
+        <div class="docs-search-box"><span aria-hidden="true">⌕</span><input id="docs-search" type="search" placeholder="Try “Activity Log”, “evidence”, or “dataset”" autocomplete="off"><kbd>/</kbd></div>
         <div class="docs-search-results" id="docs-search-results" role="status" aria-live="polite" hidden></div>
       </div>
     </section>
@@ -39,9 +39,9 @@
       <div class="docs-category-grid">
         <a href="#start"><span>01 / GET STARTED</span><h3>Set up and navigate</h3><p>Launch the app, import models, inspect elements, and run the first coordination test.</p><b aria-hidden="true">↗</b></a>
         <a href="#jev"><span>02 / AI OPERATIONS</span><h3>Jev + DeepSeek</h3><p>Understand the decision pipeline, supported actions, exact prompt examples, and limits.</p><b aria-hidden="true">↗</b></a>
-        <a href="#learning"><span>03 / LEARNING DATA</span><h3>Review and improve</h3><p>Turn real user activity into reviewed Episodes and versioned datasets.</p><b aria-hidden="true">↗</b></a>
+        <a href="#activity-log"><span>03 / LEARNING DATA</span><h3>Trace, label, version</h3><p>Inspect Activity Log events, label Episodes, and apply the dataset standard.</p><b aria-hidden="true">↗</b></a>
       </div>
-      <div class="docs-start-here"><strong>Start here</strong><a href="#start">Install and sign in <span>→</span></a><a href="#recipes">Try an AI request <span>→</span></a><a href="#limits">Read the capability boundary <span>→</span></a></div>
+      <div class="docs-start-here"><strong>Start here</strong><a href="#start">Set up the workspace <span>→</span></a><a href="#activity-log">Inspect Activity Log <span>→</span></a><a href="#data-standards">Check data standards <span>→</span></a></div>
     </section>
 
     <div class="docs-layout container">
@@ -57,7 +57,9 @@
           <a href="#capabilities">Current capability map</a>
           <a href="#recipes">Prompt examples</a>
           <span>LEARNING AND SUPPORT</span>
+          <a href="#activity-log">Activity Log walkthrough</a>
           <a href="#learning">Episode and dataset flow</a>
+          <a href="#data-standards">Data standards and quality</a>
           <a href="#exports">Save and export</a>
           <a href="#limits">Important boundaries</a>
           <a href="#troubleshooting">Troubleshooting</a>
@@ -132,21 +134,85 @@
           <div class="doc-callout"><strong>Prompt pattern</strong><p>Name one action, the target, and any needed values. First create and run a test named <strong>Duplex clearance test</strong>; if it produces result 2, you can ask <code>Show clash result 2 from the Duplex clearance test.</code> Then issue a separate request to change its status.</p></div>
         </section>
 
-        <section class="doc-section" id="learning">
-          <div class="doc-heading"><span>LEARNING / 01</span><h2>From user behavior to learning data</h2><p>The feedback loop is local and human-reviewed. It prepares data for future evaluation and model improvement; it does not retrain the model automatically.</p></div>
+        <section class="doc-section" id="activity-log">
+          <div class="doc-heading"><span>LEARNING / 01</span><h2>Activity Log: inspect the action trace</h2><p>Activity Log is the workspace's chronological view of human, agent, and system actions. Use it to see what happened before deciding whether an Episode contains useful task evidence.</p></div>
+          <div class="doc-callout"><strong>Before you begin</strong><p>Use the Windows desktop app or the local service and sign in. The public website cannot read your local Activity Log. For a first trace, open the included Duplex IFC and perform one clear action, such as <code>List all door entities.</code> with configured Jev access, or select an element manually.</p></div>
           <ol class="doc-steps">
-            <li><b>01</b><div><h3>Inspect Activity Log</h3><p>Open <strong>Activity Log</strong> from the workbench. Runtime interactions are recorded as structured, redacted events with action and outcome information.</p></div></li>
-            <li><b>02</b><div><h3>Open Episode Labeling</h3><p>Go to <strong>Episode Labeling</strong>. Filter the queue to runtime candidates, select an Episode, inspect its timeline, and confirm or correct task boundaries. Exclude records with insufficient evidence.</p></div></li>
-            <li><b>03</b><div><h3>Label and review</h3><p>Mark intent, target, outcome evidence, step value, and preferred path. Save a draft or submit it. An independent reviewer can accept the annotation; suggestions are not silently saved as human labels.</p></div></li>
-            <li><b>04</b><div><h3>Compare paths</h3><p>In <strong>Path comparison</strong>, compare submitted Episodes with the same intent and record a preferred path, equivalence, or insufficient evidence.</p></div></li>
-            <li><b>05</b><div><h3>Build a dataset version</h3><p>In <strong>Dataset versions</strong>, build a semantic-version draft from eligible reviewed runtime Episodes. Inspect exclusions, split integrity, and <strong>Human quality</strong>; then freeze and export the version and checksum.</p></div></li>
+            <li><b>01</b><div><h3>Open the log</h3><p>Click <strong>Activity Log</strong> in the workbench's top navigation. The page loads records from the local service and initially scopes the Project filter to the current project when that context is available.</p></div></li>
+            <li><b>02</b><div><h3>Check delivery before interpreting an empty stream</h3><p>Read the delivery message above <strong>Activity stream</strong>. A recently recorded action may still be in this account's local outbox. Click <strong>Refresh</strong> to retry delivery and reload the stream; if needed, return to the signed-in workspace and reconnect the local service.</p></div></li>
+            <li><b>03</b><div><h3>Narrow the event set</h3><p>Choose a <strong>Project</strong> and <strong>Account</strong>, then an <strong>Actor</strong>: Human users, LLM / agents, or System. Choose an <strong>Outcome</strong> to focus on completed or problematic actions. The Search field matches an action name, source, status, and sanitized structured fields.</p></div></li>
+            <li><b>04</b><div><h3>Read the stream and summary</h3><p>The counters show matching versus total loaded events, human and agent events, and <strong>Needs attention</strong>. Each row shows its action, source, outcome, gate class, and time. Select a row, or focus it and press Enter, to open its detail pane.</p></div></li>
+            <li><b>05</b><div><h3>Inspect the evidence</h3><p>In the detail pane, compare <strong>Outcome</strong> with <strong>Gate</strong> and <strong>Decision</strong>, then inspect sanitized Context, Input, and Result. Use the Session and Record ID to distinguish nearby events. An agent decision and the resulting BIM operation may appear as separate rows.</p></div></li>
+            <li><b>06</b><div><h3>Move from events to a task Episode</h3><p>Use <strong>Episode labeling</strong> at the top of the log page to inspect grouped runtime actions. Confirm that the action sequence and outcome match one task before labeling it. A log row alone is not a validated training example.</p></div></li>
           </ol>
-          <div class="doc-callout"><strong>Local data boundary</strong><p>Raw logs remain intact. Episode changes and annotation revisions are stored as overlays in the local runtime data directory. Review and dataset publishing depend on account capabilities in the local service.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>How to interpret Activity Log fields</caption><thead><tr><th>Field</th><th>What it tells you</th></tr></thead><tbody>
+            <tr><td>Action · time</td><td>The structured operation name and when it was recorded. Search the action name to follow repeated operations.</td></tr>
+            <tr><td>Actor · source</td><td>Whether a human, an LLM/agent, or the system initiated the event, and which application channel reported it.</td></tr>
+            <tr><td>Outcome</td><td>The recorded result status, or the decision if a result status is absent. “Needs attention” counts failed, error, timeout, denied, and confirmation-required outcomes.</td></tr>
+            <tr><td>Gate · decision</td><td>The action classification and gate result. The current <code>allow_all</code> policy does not make these labels a human approval record. <code>not_applied</code> on a direct human action means the gate was not used; it is not a failure.</td></tr>
+            <tr><td>Account · source trust</td><td>The authenticated account associated with the event and whether its action source was client reported or unverified legacy data. “Client reported” is not independent proof of intent.</td></tr>
+            <tr><td>Session · Record ID</td><td>Identifiers for following related events and locating one record; these help connect a trace to its later Episode.</td></tr>
+            <tr><td>Context · Input · Result</td><td>Bounded, sanitized structured evidence. Passwords, prompts, paths, and other sensitive values are redacted before persistence, so their full text is not available here.</td></tr>
+          </tbody></table></div>
+          <p class="doc-small-note">The page searches only the latest 1,000 loaded log entries. Activity Logs are stored locally; the current account's unsent events are retried from a browser-local queue. An empty filtered view can mean no matching event, a pending upload, or a different project/account filter. The log itself is read-only.</p>
+        </section>
+
+        <section class="doc-section" id="learning">
+          <div class="doc-heading"><span>LEARNING / 02</span><h2>From activity to labeled Episodes</h2><p>Episode Labeling turns a sequence of runtime events into a human-checked account of one task. The app stores edits as revisions alongside immutable raw logs; it does not retrain the model automatically.</p></div>
+          <ol class="doc-steps">
+            <li><b>01</b><div><h3>Open the runtime queue</h3><p>Click <strong>Episode Labeling</strong> in the workbench or from Activity Log. In the <strong>Episode labeling</strong> tab, keep Environment on <strong>Runtime</strong>. Search by action or Episode ID and filter State to <strong>Unlabeled</strong>, Draft, Submitted, Reviewed, or Excluded.</p></div></li>
+            <li><b>02</b><div><h3>Read one task timeline</h3><p>Select an Episode in the left queue. Check its time window, account, session, source trust, boundary confidence, and attention flags. The center timeline shows action, actor, source, gate, and outcome for semantic steps; enable <strong>Show observer events</strong> when navigation or selection context matters.</p></div></li>
+            <li><b>03</b><div><h3>Fix the boundary, or exclude weak evidence</h3><p>Use <strong>Split after</strong> where two tasks were joined, or <strong>Merge previous</strong> for adjacent parts of the same task. If the record is not a usable task, select a reason such as insufficient evidence or test data and click <strong>Exclude</strong>. Otherwise click <strong>Confirm boundary</strong>.</p></div></li>
+            <li><b>04</b><div><h3>Describe the intent</h3><p>In <strong>1 · Intent</strong>, choose a taxonomy category, enter the target type, add only supported constraints, and set High, Medium, or Low confidence. Check the generated goal. For a door listing, a suitable intent is <code>ifc.type-query</code> with target <code>IfcDoor</code>.</p></div></li>
+            <li><b>05</b><div><h3>Label outcome and step value</h3><p>Choose Success, Partial, Failure, or Unclear. For every outcome except Unclear, select the timeline step(s) that support the result. Label every semantic step as Necessary, Supporting, Redundant, Erroneous, or Unclear. Optional JEV Assist suggestions remain suggestions until a person adopts or edits each field.</p></div></li>
+            <li><b>06</b><div><h3>Mark the preferred path</h3><p>Use <strong>Path</strong> on the timeline to pick the useful action sequence. Do not include steps labeled Redundant or Erroneous. A non-Unclear outcome needs a preferred path. If you intentionally reorder steps, select <strong>Counterfactual order</strong> and explain why.</p></div></li>
+            <li><b>07</b><div><h3>Save, submit, and review</h3><p>Choose <strong>Save draft</strong> to keep unfinished work, or <strong>Submit &amp; next</strong> after confirming the boundary and all required labels. A submitted annotation is locked; an account with review permission can <strong>Accept review</strong> or <strong>Reopen</strong> it for correction.</p></div></li>
+            <li><b>08</b><div><h3>Compare and inspect quality</h3><p>Use <strong>Path comparison</strong> to compare eligible Episodes with the same intent category and target, then record Prefer A, Prefer B, Equivalent, or Insufficient evidence. A reviewer-capable account can open <strong>Human quality</strong> to inspect agreement in intent, outcome, step labels, and preferred paths.</p></div></li>
+          </ol>
+          <div class="doc-callout"><strong>What submission requires</strong><p>Confirm the boundary; complete intent category, target, and confidence; choose an outcome; label every semantic step. Unless the outcome is Unclear, select outcome evidence and a preferred path. Reordered paths need a reason. Submitting does not itself train or deploy a model.</p></div>
+        </section>
+
+        <section class="doc-section" id="data-standards">
+          <div class="doc-heading"><span>LEARNING / 03</span><h2>Data standards and dataset versions</h2><p>The learning pipeline has distinct records, eligibility rules, and a reproducible export. This is the contract to check before treating activity as reusable model data.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Data layers and their purpose</caption><thead><tr><th>Layer</th><th>Required structure</th><th>How to interpret it</th></tr></thead><tbody>
+            <tr><td>Activity event</td><td>Schema v1: record ID, timestamp, session, action, actor, source, provenance, trace, classification, context, input, and result.</td><td>An observed action with sanitized evidence. It is not a task label or proof that an AI action was approved.</td></tr>
+            <tr><td>Episode</td><td>Versioned segmentation policy; source environment, project and session identifiers, time window, ordered steps, lineage, and attention flags.</td><td>A candidate task boundary. Semantic actions and observer actions can be inspected separately; split, merge, and exclusion are recorded as overlays.</td></tr>
+            <tr><td>Human annotation</td><td>Taxonomy category, target and constraints, intent confidence, outcome and evidence, a label for every semantic step, preferred path, state, and revision.</td><td>A person's interpretation of one Episode. Drafts can be incomplete; submitted labels must pass the required-field checks.</td></tr>
+            <tr><td>Dataset version</td><td>Semantic version, manifest, eligible Episodes, preference labels, exclusions, train/validation/test assignment, and SHA-256 checksums after freeze.</td><td>A fixed export for later evaluation or training work. Freezing records integrity; it does not retrain Jev automatically.</td></tr>
+          </tbody></table></div>
+          <h3 class="doc-subheading">Allowed annotation values</h3>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Human labeling vocabulary</caption><thead><tr><th>Field</th><th>Allowed values or rule</th></tr></thead><tbody>
+            <tr><td>Intent category</td><td>IFC property, type, spatial, or relationship query; selection; viewer visibility or navigation; section; project; output; coordination review; or Unknown. The stored taxonomy uses version <code>episode-labels/1.0.0</code>.</td></tr>
+            <tr><td>Intent confidence</td><td>High, Medium, or Low, based on how clearly the recorded task supports the chosen intent.</td></tr>
+            <tr><td>Outcome</td><td>Success, Partial, Failure, or Unclear. A non-Unclear outcome must point to one or more evidence steps.</td></tr>
+            <tr><td>Step value</td><td>Necessary, Supporting, Redundant, Erroneous, or Unclear for every semantic step. Observer events can supply context without requiring step labels.</td></tr>
+            <tr><td>Path comparison</td><td>Prefer A, Prefer B, Equivalent, or Insufficient evidence. A preference for A or B needs a reason code.</td></tr>
+          </tbody></table></div>
+          <h3 class="doc-subheading">Build and verify a version</h3>
+          <ol class="doc-steps">
+            <li><b>01</b><div><h3>Start with eligible runtime data</h3><p>Use real <strong>Runtime</strong> Episodes with a known project fingerprint, an active boundary, and a submitted or reviewed annotation. Test or legacy Episodes, excluded or superseded Episodes, missing boundaries, and missing project identity are excluded. If multiple independent submitted or reviewed annotations exist, at least one must be reviewed before inclusion.</p></div></li>
+            <li><b>02</b><div><h3>Check labels and comparisons</h3><p>Inspect the submitted intent, outcome evidence, all semantic step labels, and preferred path. A comparison can enter the dataset only when both linked Episodes are eligible. <strong>Human quality</strong> reports agreement; its dashboard is not an automatic approval of every label.</p></div></li>
+            <li><b>03</b><div><h3>Create a draft</h3><p>In <strong>Dataset versions</strong>, enter a new <code>MAJOR.MINOR.PATCH</code> value, such as <code>1.0.0</code>, and click <strong>Build draft</strong>. This operation requires dataset publishing permission. Select the draft to inspect its manifest, Episode and preference counts, excluded count, and split counts.</p></div></li>
+            <li><b>04</b><div><h3>Inspect the split and exclusions</h3><p>The app deterministically groups by project fingerprint, session, and intent category before assigning approximately 80% train, 10% validation, and 10% test buckets. This keeps a related project/session/intent group in one split. The draft shows the exclusion count; detailed reasons appear in <code>exclusions.json</code> after export.</p></div></li>
+            <li><b>05</b><div><h3>Freeze and export</h3><p>Click <strong>Freeze version</strong> once the manifest and counts match the intended cohort. Then export <code>manifest.json</code>, <code>episodes.ndjson</code>, <code>preferences.ndjson</code>, <code>exclusions.json</code>, and <code>checksums.sha256</code>. Verify the SHA-256 values when transferring the files.</p></div></li>
+          </ol>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Files in a frozen dataset version</caption><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody>
+            <tr><td><code>manifest.json</code></td><td>Dataset name and version, status, policy versions, created/frozen metadata, counts, split totals, and checksums.</td></tr>
+            <tr><td><code>episodes.ndjson</code></td><td>One eligible Episode per line, with selected step fields, a human annotation, split label, and hashed project/session identifiers.</td></tr>
+            <tr><td><code>preferences.ndjson</code></td><td>Pairwise path choices whose two Episodes are both in this version.</td></tr>
+            <tr><td><code>exclusions.json</code></td><td>Episode IDs omitted from this version and the reason codes for each omission.</td></tr>
+            <tr><td><code>checksums.sha256</code></td><td>SHA-256 hashes for the Episode, preference, and exclusion files; compare these with the manifest after transfer.</td></tr>
+          </tbody></table></div>
+          <div class="doc-grid-two">
+            <div class="doc-mini-card"><h3>Versioned provenance</h3><p>The manifest records <code>episode-segmentation/1.0.0</code>, <code>episode-labels/1.0.0</code>, and <code>activity-log/1</code>, plus counts and split totals. Exported Episodes use hashes in place of raw project and session IDs.</p></div>
+            <div class="doc-mini-card"><h3>Privacy boundary</h3><p>The log sanitizer replaces sensitive fields with presence markers, limits stored text and arrays, and runs in the client and local service. Raw Activity Logs remain local; dataset exports contain selected step and annotation fields. Review exports before sharing them.</p></div>
+          </div>
+          <div class="doc-callout"><strong>Eligibility is specific</strong><p>A single submitted human annotation can qualify; independent review is not required for every Episode. If more than one independent label exists without a reviewed resolution, that Episode is excluded. Freeze makes a version immutable; corrections belong in a new version.</p></div>
         </section>
 
         <section class="doc-section" id="exports">
-          <div class="doc-heading"><span>LEARNING / 02</span><h2>Save, export, and continue</h2><p>Choose the output that matches the next task.</p></div>
-          <div class="doc-table-wrap"><table class="doc-table"><caption>Output choices</caption><thead><tr><th>Action</th><th>What it gives you</th></tr></thead><tbody><tr><td>Save project</td><td>Local browser storage on this device for continued work.</td></tr><tr><td>Export project</td><td>A portable <code>.sophonbim</code> project file with geometry and coordination records.</td></tr><tr><td>Report / Export CSV</td><td>A printable HTML coordination report or a clash register spreadsheet file.</td></tr><tr><td>Snapshot</td><td>A PNG image of the current viewport.</td></tr><tr><td>Dataset export</td><td>Frozen manifest, Episodes, preferences, exclusions, and checksum for a reviewed version.</td></tr></tbody></table></div>
+          <div class="doc-heading"><span>LEARNING / 04</span><h2>Save, export, and continue</h2><p>Choose the output that matches the next task.</p></div>
+          <div class="doc-table-wrap"><table class="doc-table"><caption>Output choices</caption><thead><tr><th>Action</th><th>What it gives you</th></tr></thead><tbody><tr><td>Save project</td><td>Local browser storage on this device for continued work.</td></tr><tr><td>Export project</td><td>A portable <code>.sophonbim</code> project file with geometry and coordination records.</td></tr><tr><td>Report / Export CSV</td><td>A printable HTML coordination report or a clash register spreadsheet file.</td></tr><tr><td>Snapshot</td><td>A PNG image of the current viewport.</td></tr><tr><td>Dataset export</td><td>A frozen manifest, eligible Episodes, preferences, exclusions, and checksums for a versioned dataset.</td></tr></tbody></table></div>
           <p class="doc-small-note">A saved issue is a local project record. SophonBIM does not send email or cloud notifications from the issue workflow.</p>
         </section>
 
@@ -158,7 +224,7 @@
             <div class="doc-mini-card"><h3>IFC semantics are required</h3><p>GLB and glTF can be viewed and coordinated geometrically, but they cannot supply IFC property or spatial relationship queries.</p></div>
             <div class="doc-mini-card"><h3>No source IFC rewrite</h3><p>Coordination edits change the SophonBIM project, not the imported source files. Jev cannot overwrite a source IFC or email stakeholders.</p></div>
             <div class="doc-mini-card"><h3>AI needs the local service</h3><p>Static builds cannot call Jev or DeepSeek, write Activity Logs, or publish labeled datasets. API keys may invoke paid external services.</p></div>
-            <div class="doc-mini-card"><h3>Human-reviewed iteration</h3><p>Activity and annotations can become frozen datasets. Automatic training, deployment of a new model, and automatic adoption of suggestions are not implemented.</p></div>
+            <div class="doc-mini-card"><h3>Human-labeled iteration</h3><p>Eligible submitted or reviewed annotations can become frozen datasets. Automatic training, deployment of a new model, and automatic adoption of suggestions are not implemented.</p></div>
           </div>
           <div class="doc-callout"><strong>Data-size boundary</strong><p>Large IFC context can be uploaded to the local service temporarily for an AI request. A single semantic IFC model above 32 MiB is rejected before a paid AI call. Accuracy is probabilistic; verify important results in the workspace.</p></div>
         </section>
