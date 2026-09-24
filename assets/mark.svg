@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SophonBIM mark">
+  <rect width="32" height="32" rx="8" fill="#2f926d"/>
+  <path d="M16 4.5 27 10.4 16 16.3 5 10.4 16 4.5Z" fill="#dff4e9"/>
+  <path d="M5 10.4 16 16.3v11.2L5 21.6V10.4Z" fill="#8bcaae"/>
+  <path d="M27 10.4 16 16.3v11.2l11-5.9V10.4Z" fill="#f4fbf7"/>
+  <path d="m10.2 11.4 5.8-3.1 5.8 3.1-3.1 1.7-2.7-1.5-2.7 1.5 5.5 3-2.8 1.5-5.8-3.1 3-1.6-3-1.5Z" fill="#23694f"/>
+</svg>
