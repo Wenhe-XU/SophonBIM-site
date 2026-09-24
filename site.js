@@ -1,10 +1,10 @@
 // Set this to "owner/repository" after the public GitHub repository is chosen.
 // Keep release assets on GitHub Releases, outside this static website.
-const githubRepository = '';
-const releaseTag = '';
-const installerName = '';
-const armReleaseTag = '';
-const armInstallerName = '';
+const githubRepository = 'Wenhe-XU/SophonBIM-site';
+const releaseTag = 'v1.5.8';
+const installerName = 'SophonBIM-1.5.8-win-x64.exe';
+const armReleaseTag = 'v1.5.8';
+const armInstallerName = 'SophonBIM-1.5.8-win-arm64.exe';
 const installNotice = document.getElementById('install-notice');
 const armNotice = document.getElementById('install-notice-arm');
 const pendingNotice = document.getElementById('install-notice-pending');
